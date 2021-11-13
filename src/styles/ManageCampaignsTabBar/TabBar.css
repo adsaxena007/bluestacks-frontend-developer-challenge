@@ -1,7 +1,65 @@
 .active {
+  width: 100%;
   background-color: white;
 }
 
 .inactive {
   background-color: rgba(241, 241, 244, 255);
+}
+
+.tab-view {
+  display: none;
+}
+
+.dropdown-view {
+  display: block;
+}
+
+.open-dropdown {
+  display: block;
+}
+
+.close-dropdown {
+  display: none;
+}
+
+.dropdown-body {
+  width: 100%;
+  border-radius: 10px;
+  border: 2.5px solid rgba(241, 241, 244, 255);
+  padding: 2%;
+  cursor: pointer;
+}
+
+.dropdown-head {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.open-dropdown-head {
+  border-bottom: 2px solid rgba(241, 241, 244, 255);
+}
+
+.dropdown-item {
+  width: 100%;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.item-tag {
+  font-size: 1.2rem;
+}
+
+@media (min-width: 30rem) {
+  .tab-view {
+    display: block;
+  }
+
+  .dropdown-view {
+    display: none;
+  }
 }

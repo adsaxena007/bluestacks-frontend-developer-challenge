@@ -14,12 +14,12 @@
 .app-logo {
   height: 40px;
   position: relative;
-  right: 10%;
+  right: 2.5%;
 }
 
 .dropdown-div {
   position: relative;
-  left: 10%;
+  left: 2.5%;
   background-color: rgba(31, 38, 64, 255);
   height: 40px;
 }
@@ -41,5 +41,9 @@
   }
   .app-logo {
     height: 60px;
+    right: 10%;
+  }
+  .dropdown-div {
+    left: 10%;
   }
 }

@@ -17,7 +17,8 @@ export default function TabBar(props){
     const [pastCampaigns, setPastCampaigns] = useState([]);           //state to store all the Past campaigns
     const [activeTab, setActiveTab] = useState(1);                    //state to keep tract of active tab bar
     const {language} = useContext(LanguageContext);                   //fetch the selected language
-    
+    const [isDropdownOpen, setIsDropdownOpen ] = useState(false);
+
     //divides campaigns into Upcomming, Live, Past categories when ever a change is made onto the state i.e. campaigns 
     useEffect(()=>{
       const curr_date = new Date();
@@ -66,36 +67,101 @@ export default function TabBar(props){
       }
     }
     return (
-            <Tabs
-              id="ManageCampaignsTabBar"
-              activeKey={key}
-              onSelect={(k) => setKey(k)}
-              className="mb-3"
-            >
-              <Tab 
-                eventKey="UpcomingCampaigns" 
-                title={text[language].upcommingCampain} 
-                onClick={()=>{setActiveTab(1)}}
-                tabClassName={activeTab===1?'active':'inactive'}
+          <div>
+            <div className='tab-view'>
+              <Tabs
+                id="ManageCampaignsTabBar"
+                activeKey={key}
+                onSelect={(k) => setKey(k)}
+                className="mb-3"
               >
-                <UpcomingCampaignsTab campaigns={upcommingCampaigns} reschedule = {schedule}/>
-              </Tab>
-              <Tab 
-                eventKey="LiveCampaigns" 
-                title={text[language].liveCampaigns} 
-                onClick={()=>{setActiveTab(2)}}
-                tabClassName={activeTab===2?'active':'inactive'}
-              >
-                <LiveCampaignsTab campaigns={liveCampaigns} reschedule = {schedule}/>
-              </Tab>
-              <Tab 
-                eventKey="PastCampaigns" 
-                title={text[language].pastCampaigns} 
-                onClick={()=>{setActiveTab(3)}}
-                tabClassName={activeTab===3?'active':'inactive'}
-              >
-                <PastCampaignsTab campaigns={pastCampaigns} reschedule = {schedule}/>
-              </Tab>
-            </Tabs>
+                <Tab 
+                  eventKey="UpcomingCampaigns" 
+                  title={text[language].upcommingCampain} 
+                  onClick={()=>{setActiveTab(1)}}
+                  tabClassName={activeTab===1?'active':'inactive'}
+                >
+                  <UpcomingCampaignsTab campaigns={upcommingCampaigns} reschedule = {schedule}/>
+                </Tab>
+                <Tab 
+                  eventKey="LiveCampaigns" 
+                  title={text[language].liveCampaigns} 
+                  onClick={()=>{setActiveTab(2)}}
+                  tabClassName={activeTab===2?'active':'inactive'}
+                >
+                  <LiveCampaignsTab campaigns={liveCampaigns} reschedule = {schedule}/>
+                </Tab>
+                <Tab 
+                  eventKey="PastCampaigns" 
+                  title={text[language].pastCampaigns} 
+                  onClick={()=>{setActiveTab(3)}}
+                  tabClassName={activeTab===3?'active':'inactive'}
+                >
+                  <PastCampaignsTab campaigns={pastCampaigns} reschedule = {schedule}/>
+                </Tab>
+              </Tabs>
+            </div>
+            <div className='dropdown-view'>
+              <div className='dropdown-body'>
+                <div 
+                    onClick={()=>{setIsDropdownOpen(!isDropdownOpen)}} 
+                    className= {isDropdownOpen ? 'open-dropdown-head dropdown-head' : 'dropdown-head'}>
+                  <h6 className='item-tag'>
+                    { activeTab===1 
+                        ? 
+                      'Upcomming Campaigns' 
+                        : 
+                      ( activeTab===2 
+                          ? 
+                        'Live Campaigns'
+                          :
+                        'Past Campaigns')
+                    }
+                  </h6>
+                </div>
+
+                <div className={isDropdownOpen ? 'open-dropdown' : 'close-dropdown'}>
+                  <div 
+                      onClick={()=>{
+                                setActiveTab(1);
+                                setIsDropdownOpen(false);
+                            }} 
+                      className='dropdown-item'>
+                    <h6 className='item-tag'>Upcomming Campaigns</h6>
+                  </div>
+                  <div 
+                      onClick={()=>{
+                                setActiveTab(2);
+                                setIsDropdownOpen(false);
+                            }} 
+                      className='dropdown-item'>
+                    <h6 className='item-tag'>Live Campaigns</h6>
+                  </div>
+                  <div 
+                      onClick={()=>{
+                                setActiveTab(3);
+                                setIsDropdownOpen(false);
+                            }} 
+                      className='dropdown-item'>
+                    <h6 className='item-tag'>Past Campaigns</h6>
+                  </div>
+                </div>
+
+              </div>
+              { activeTab===1 
+                ? 
+                <div> <UpcomingCampaignsTab campaigns={upcommingCampaigns} reschedule = {schedule}/></div>
+                : 
+              ( activeTab===2 
+                  ? 
+                  <div> <LiveCampaignsTab campaigns={liveCampaigns} reschedule = {schedule}/></div>
+                  :
+                  <div> <PastCampaignsTab campaigns={pastCampaigns} reschedule = {schedule}/></div>
+              )
+              }
+            
+            </div>
+
+          </div>
       );
 }
