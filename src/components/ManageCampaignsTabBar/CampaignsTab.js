@@ -234,7 +234,7 @@ export default function CampaignsTab(props){
                     ))
                   }
                 </div>
-            <Modal show={showCalendar} onHide={handleClose} >
+            <Modal show={showCalendar} onHide={handleClose} centered size='sm'>
               <div className='calendar-modal'>
                 <Calendar
                   onChange={ 
@@ -243,6 +243,7 @@ export default function CampaignsTab(props){
                       handleClose();
                     }
                   }
+                  className='calendar-modal'
                 />
               </div>
             </Modal>
