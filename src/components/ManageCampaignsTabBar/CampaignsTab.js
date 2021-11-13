@@ -10,7 +10,6 @@ import reportIcon from '../../images/Dashboard/Row/Group 2/statistics-report.png
 import fileIcon from '../../images/Dashboard/Row/Group 3/file.png';
 import priceIcon from '../../images/Dashboard/Row/Group 4/Price.png';
 import Moment from 'react-moment';
-import Container from 'react-bootstrap/Container'
 import LanguageContext from '../../context/LanguageContext';
  
 export default function CampaignsTab(props){
@@ -245,61 +244,56 @@ export default function CampaignsTab(props){
             <Modal show={showPricing} onHide={closePricingModal} >
               <div className='pricing-modal'>
                 
-                <Row xs='auto'>
-                  <Col md="auto">
+                <div className='price-modal-head'>
+                  <div className='campaign-modal-image-div'>
                     <img src={selectedCampaign.image_url} alt='' className='campaign-modal-image'/>
-                  </Col>
+                  </div>
 
-                  <Col md="auto">
-                    <Row>
+                  <div className='campaign-modal-tag-div'>
                       <h3>{selectedCampaign.name}</h3>
-                    </Row>
-                    <Row>
                       <h6 className='tag'>{selectedCampaign.region}</h6>
-                    </Row>
-                  </Col>
-                </Row> 
+                  </div>
+                </div>
                 <br/>
 
-                <Container> 
-                    <Row>
-                    <div>
-                      <h2 className='pricing-modal-tag'>{text[language].pricing}</h2>
+                <div> 
+                  <div>
+                    <h2 className='pricing-modal-tag'>{text[language].pricing}</h2>
+                  </div>
+                  <div className='small-span'/>
+                  
+                  <div className='price-modal-table'>
+                    <div className='price-modal-table-label'>
+                      <Row className='price-modal-table-label-row'>
+                        <h6 className='big-tag price-modal-table-label-tag'>{text[language].period1}</h6>
+                      </Row>
+                      <div className='small-span'/>
+                      <Row className='price-modal-table-label-row'>
+                        <h6 className='big-tag price-modal-table-label-tag'>{text[language].period2}</h6>
+                      </Row>
+                      <div className='small-span'/>
+                      <Row className='price-modal-table-label-row'>
+                        <h6 className='big-tag price-modal-table-label-tag'>{text[language].period3}</h6>
+                      </Row>
                     </div>
-                    </Row>
-                    <div className='small-span'/>
-                    <Row>
-                      <Col md={8}>
-                        <Row>
-                          <h6 className='big-tag'>{text[language].period1}</h6>
-                        </Row>
-                        <div className='small-span'/>
-                        <Row>
-                          <h6 className='big-tag'>{text[language].period2}</h6>
-                        </Row>
-                        <div className='small-span'/>
-                        <Row>
-                          <h6 className='big-tag'>{text[language].period3}</h6>
-                        </Row>
-                      </Col>
-                      <Col>
-                        <Row>
-                          <h6 className='price-tag'>$ 100.00</h6>
-                        </Row>
-                        <div className='small-span'/>
-                        <Row>
-                          <h6 className='price-tag'>$ 500.00</h6>
-                        </Row>
-                        <div className='small-span'/>
-                        <Row>
-                          <h6 className='price-tag'>$ 900.00</h6>
-                        </Row>
-                      </Col>
-                    </Row>
-                </Container>
+                    <div className='price-modal-table-price'>
+                      <Row className='price-modal-table-price-row'>
+                        <h6 className='price-tag price-modal-table-price-tag'>$ 100.00</h6>
+                      </Row>
+                      <div className='small-span'/>
+                      <Row className='price-modal-table-price-row'>
+                        <h6 className='price-tag price-modal-table-price-tag'>$ 500.00</h6>
+                      </Row>
+                      <div className='small-span'/>
+                      <Row className='price-modal-table-price-row'>
+                        <h6 className='price-tag price-modal-table-price-tag'>$ 900.00</h6>
+                      </Row>
+                    </div>
+                  </div>
+                </div>
                 <br/>
                 <br/>
-                <Container>
+                <div>
                   <Row>
                     <div className='flex-div'>
                       <button 
@@ -318,7 +312,7 @@ export default function CampaignsTab(props){
                       </button>
                     </div>
                   </Row>
-                </Container>
+                </div>
               </div>
             </Modal>
         </div>

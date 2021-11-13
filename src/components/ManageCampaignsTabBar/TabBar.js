@@ -14,6 +14,8 @@ export default function TabBar(props){
     const [upcommingCampaigns, setUpcommingCampaigns] = useState([]);
     const [liveCampaigns, setLiveCampaigns] = useState([]);
     const [pastCampaigns, setPastCampaigns] = useState([]);
+    const [activeTab, setActiveTab] = useState(1);
+    const {language} = useContext(LanguageContext);
     
     useEffect(()=>{
       const curr_date = new Date();
@@ -59,8 +61,6 @@ export default function TabBar(props){
         pastCampaigns: 'Vergangene Kampagnen',
       }
     }
-    const {language} = useContext(LanguageContext);
-    const {activeTab, setActiveTab} = useState(1);
     return (
             <Tabs
               id="ManageCampaignsTabBar"
