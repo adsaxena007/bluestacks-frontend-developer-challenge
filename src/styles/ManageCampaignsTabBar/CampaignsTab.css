@@ -198,16 +198,12 @@
 
 @media (min-width: 25rem) {
   .calendar-modal {
-    margin: 3%;
+    margin: 0%;
   }
 }
 
 /* CSS for screen width larger than 36rem */
 @media (min-width: 36rem) {
-  .calendar-modal {
-    margin: 0%;
-  }
-
   .actions-btn {
     display: block;
     width: 100%;
