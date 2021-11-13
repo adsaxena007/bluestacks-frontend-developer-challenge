@@ -7,9 +7,10 @@ import Col from 'react-bootstrap/esm/Col';
 import { useContext } from 'react';
 import LanguageContext from '../context/LanguageContext';
 
-
+//NavBar Of Our Application 
+//Has a logo and a dropdown button to change the language in the whole app
 export default function NavBar(props){
-    const {language, setLanguage} = useContext(LanguageContext);
+    const {language, setLanguage} = useContext(LanguageContext); //fetch the selected language
     return(
         <div className='app-navbar'>
             <img src={logo} alt='' className='app-logo'/>

@@ -4,9 +4,12 @@ import LanguageContext from '../context/LanguageContext';
 import '../styles/ManageCampaigns.css';
 import ManageCampaignsTabBar from './ManageCampaignsTabBar/TabBar';
 
+//Manage Campaign Component
+//Renders a TabBar component 
 
 export default function ManageCampaigns(props){
-    const text = {
+  //data to be displayed as per the selected language
+  const text = {
       english:{
         manageCampain: 'Manage Campaigns'
       },
@@ -15,7 +18,7 @@ export default function ManageCampaigns(props){
       }
     }
 
-    const {language} = useContext(LanguageContext);
+    const {language} = useContext(LanguageContext); //fetch the selected language
     return (
         <div className='mng-campaings'>
           <div className='mng-campaings-header'>

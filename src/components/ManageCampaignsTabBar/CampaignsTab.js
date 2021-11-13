@@ -13,17 +13,24 @@ import Moment from 'react-moment';
 import LanguageContext from '../../context/LanguageContext';
  
 export default function CampaignsTab(props){
-    const [showCalendar, setShowCalendar] = useState(false);
-    const [selectedCampaignId, setSelectedCampaignId] = useState();
-    const [showPricing, setShowPricing] = useState(false);
-    const [selectedCampaign, setSelectedCampaign] = useState({});
-
+    const [showCalendar, setShowCalendar] = useState(false);        //State to manage calendar Modal 
+    const [selectedCampaignId, setSelectedCampaignId] = useState(); //State to maintain selected campaign id for a modal
+    const [showPricing, setShowPricing] = useState(false);          //State to manage Pricing Modal
+    const [selectedCampaign, setSelectedCampaign] = useState({});   //State to maintain selected campaign for a modal
+    const {language} = useContext(LanguageContext); //fetch the selected language
+    //function to close Calendar Modal
     const handleClose = () => setShowCalendar(false);
+
+    //function to close Calendar Modal
     const handleShow = () => setShowCalendar(true);
 
+    //function to close Price Modal
     const closePricingModal = () => setShowPricing(false);
+    
+    //function to open Price Modal
     const showPricingModal = () => setShowPricing(true);
-
+    
+    //data to be displayed as per the selected language
     const text = {
       english:{
         date: 'DATE',
@@ -57,7 +64,6 @@ export default function CampaignsTab(props){
         close: 'Nah dran'
       }
     }
-    const {language} = useContext(LanguageContext);
     return(
         <div className='campaign-tab'>
                 <div className='table-header'>

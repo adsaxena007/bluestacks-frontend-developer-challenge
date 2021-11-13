@@ -1,3 +1,6 @@
+/* CSS WRITTEN WITH MOBILE FIRST APPROACH */
+/* CSS For larger devices are written with media queries */
+
 .app-navbar {
   width: 100%;
   height: 45px;
@@ -29,6 +32,8 @@
 .dropdown-div-item-lang {
   font-size: 2rem;
 }
+
+/* CSS for screen width larger than 40rem */
 @media (min-width: 40rem) {
   .app-navbar {
     height: 60px;

@@ -1,5 +1,6 @@
 /* CSS WRITTEN WITH MOBILE FIRST APPROACH */
 /* CSS For larger devices are written with media queries */
+
 .campaign-tab {
   position: relative;
   display: flex;
@@ -188,7 +189,7 @@
   margin-left: 1.5%;
   margin-right: 1.5%;
 }
-
+/* CSS for screen width larger than 36rem */
 @media (min-width: 36rem) {
   .actions-btn {
     display: block;
@@ -220,7 +221,7 @@
     margin-right: 1.5%;
   }
 }
-
+/* CSS for screen width larger than 40rem */
 @media (min-width: 40rem) {
   .campaign-tab {
     margin: 0%;
@@ -282,7 +283,7 @@
     margin-left: 2.5%;
   }
 }
-
+/* CSS for screen width larger than 60rem */
 @media (min-width: 60rem) {
   .image-icon {
     width: 25px;
@@ -327,7 +328,7 @@
     display: none;
   }
 }
-
+/* CSS for screen width larger than 70rem */
 @media (min-width: 70rem) {
   .big-tag {
     font-size: 0.9rem;
@@ -341,7 +342,7 @@
     display: inline-block;
   }
 }
-
+/* CSS for screen width larger than 80rem */
 @media (min-width: 80rem) {
   .tag {
     font-size: 0.8rem;

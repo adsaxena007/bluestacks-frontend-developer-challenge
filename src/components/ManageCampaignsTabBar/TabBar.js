@@ -8,15 +8,17 @@ import '../../styles/ManageCampaignsTabBar/TabBar.css';
 import {data} from '../../data.js'
 import LanguageContext from '../../context/LanguageContext';
 
+//Resuses the CampaignsTab component to render Upcomming, Live and Past campaigns
 export default function TabBar(props){
     const [key, setKey] = useState('UpcomingCampaigns');
-    const [campaigns, setCampaigns] = useState(data);
-    const [upcommingCampaigns, setUpcommingCampaigns] = useState([]);
-    const [liveCampaigns, setLiveCampaigns] = useState([]);
-    const [pastCampaigns, setPastCampaigns] = useState([]);
-    const [activeTab, setActiveTab] = useState(1);
-    const {language} = useContext(LanguageContext);
+    const [campaigns, setCampaigns] = useState(data);                 //state to store all the campaigns
+    const [upcommingCampaigns, setUpcommingCampaigns] = useState([]); //state to store all the Upcomming campaigns
+    const [liveCampaigns, setLiveCampaigns] = useState([]);           //state to store all the Live campaigns
+    const [pastCampaigns, setPastCampaigns] = useState([]);           //state to store all the Past campaigns
+    const [activeTab, setActiveTab] = useState(1);                    //state to keep tract of active tab bar
+    const {language} = useContext(LanguageContext);                   //fetch the selected language
     
+    //divides campaigns into Upcomming, Live, Past categories when ever a change is made onto the state i.e. campaigns 
     useEffect(()=>{
       const curr_date = new Date();
       curr_date.setHours(0,0,0,0)
@@ -40,6 +42,7 @@ export default function TabBar(props){
 
     },[campaigns]);
     
+    //below function re-schedules the campaign to the selected date
     const schedule = (id, date) => {
         const temp = campaigns.map( (campaign)=>{
             if(campaign.id === id)
@@ -49,6 +52,7 @@ export default function TabBar(props){
         setCampaigns(temp);
     }
 
+    //data to be displayed as per the selected language
     const text = {
       english:{
         upcommingCampain: 'Upcoming Campaigns',
