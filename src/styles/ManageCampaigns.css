@@ -1,0 +1,50 @@
+.mng-campaings {
+  display: flex;
+  flex-direction: column;
+}
+
+.mng-campaings-header {
+  position: relative;
+  display: flex;
+  width: 100%;
+  height: 100px;
+  align-items: center;
+}
+
+.mng-campaings-tag {
+  color: rgba(43, 65, 108, 255);
+  position: absolute;
+  font-size: 1.8rem;
+  font-weight: bolder;
+  left: 2.5%;
+}
+
+.mng-campaings-tabbar {
+  padding-left: 1%;
+  padding-right: 1%;
+  height: 100vh;
+  overflow: hidden;
+}
+
+@media (min-width: 36rem) {
+  .mng-campaings-tag {
+    font-size: 2rem;
+  }
+
+  .mng-campaings-tabbar {
+    padding-left: 2%;
+    padding-right: 2%;
+  }
+}
+
+@media (min-width: 40rem) {
+  .mng-campaings-tag {
+    font-size: 2.5rem;
+    left: 10%;
+  }
+
+  .mng-campaings-tabbar {
+    padding-left: 10%;
+    padding-right: 10%;
+  }
+}
